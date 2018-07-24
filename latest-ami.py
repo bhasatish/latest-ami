@@ -7,10 +7,10 @@ from dateutil import parser
 
 region = sys.argv[1]
 
-def newest_image(list_of_images):
+def newest_image(list_of_images):  --> Invalid -- list_of_images is Empty
     latest = None
 
-    for image in list_of_images:
+    for image in list_of_images: --> This loop wouldn't run because list_of_images is empty 
         if not latest:
             latest = image
             continue
@@ -57,4 +57,4 @@ filters = [ {
 response = client.describe_images(Owners=['amazon'], Filters=filters)
  
 source_image = newest_image(response['Images'])
-print(source_image['ImageId'])
+print(source_image['ImageId'])   --> This will return null VALUE/
